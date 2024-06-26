@@ -21,6 +21,7 @@ body {
 .main-сontainer {
   display: grid;
   justify-content: center;
+  user-select: none;
 }
 
 .container {

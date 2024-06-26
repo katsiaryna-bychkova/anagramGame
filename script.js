@@ -103,6 +103,7 @@ function handlePointerUp() {
     element.removeEventListener('pointerover', handlePointerOver); 
     element.removeEventListener('pointerdown', handlePointerDown); 
   });
+  document.body.style.overflow = 'auto';
 
   const indexWord = words.indexOf(myWord.join(''));
 
@@ -216,6 +217,7 @@ function handlePointerOver(event) {
 function handlePointerDown(element) {
   element.style.color = GRAY_COLOR;
   element.style.backgroundColor = WHITE_COLOR;
+  document.body.style.overflow = 'hidden';
 
   myWord.push(element.textContent);
   showText(element.textContent);
