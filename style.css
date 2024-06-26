@@ -1,0 +1,234 @@
+@font-face {
+  font-family: 'VAG World';
+  src: url('VAG World Bold.ttf');
+  font-weight: 700;
+}
+
+body {
+  background-color: #2B344B;
+  font-family: 'VAG World';
+}
+
+.level {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 35px;
+  text-align: center;  
+  color: #FFFFFF;
+  padding: 30px 0 50px;
+}
+
+.main-сontainer {
+  display: grid;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+#myWord {
+  height: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+.square {
+  width: 72px;
+  height: 72px;
+  background-color: #F2F2F2;
+  border-radius: 20px;
+  margin: 5px;
+}
+
+.right-word {
+  background-color: #65BD65;
+  color: #FFFFFF;
+
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 84.17px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.little-square {
+  width: 42px;
+  height: 42px;
+  background-color: #F2F2F2;
+  border-radius: 10px;
+  margin: 5px;
+  font-size: 30px;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+}
+
+ /* letters */
+
+.outer-circle {
+  position: relative;
+  width: 294px;
+  height: 294px;
+  border-radius: 50%;
+  border: 20px solid #3E4A68;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.inner-circle {
+  position: absolute;
+  width: 89.94px; 
+  height: 89.94px; 
+  border-radius: 50%;
+  background-color: #E96FA4;
+
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+
+  color: white; 
+
+  font-size: 57px;
+  text-transform: uppercase;
+  
+  cursor: pointer;
+  user-select: none;
+}
+
+.victory-container {
+  display: flex;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 37px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 200px;
+  flex-direction: column;
+}
+
+.victory-container p {
+  font-size: 53px;
+  margin: 0;
+}
+
+.next-level-button {
+  background-color: #65BD65;
+  color: white;
+  padding: 10px 32px;
+  text-align: center;
+  font-size: 40px;
+  cursor: pointer;
+  border-radius: 50px;
+  width: 330px;
+  margin: 0 auto;
+  margin-top: 300px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* уведомление */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.message-box {
+  background-color: #FFFFFF;
+  padding: 20px;
+  border-radius: 50px;
+  width: 80%;
+  max-width: 530px;
+  text-align: center;
+  color: #4D4D4D;
+
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38px;
+  text-align: center;
+
+}
+
+.message-box .refresh-window {
+  background-color: #65BD65;
+  color: #FFFFFF;
+  padding: 20px 40px;
+  border: none;
+  border-bottom: 5px solid #508853;
+  border-radius: 50px;
+  cursor: pointer;
+
+  font-size: 42px;
+  font-weight: 700;
+  text-align: center;
+  
+}
+
+.question-block {
+  display: flex;
+  justify-content: center;
+  margin-top: -40px;
+}
+
+.block {
+  width: 352px;
+  height: 113px;
+  background-color: #EC6B3A;
+  clip-path: polygon(50% 100%, 100% 62%, 100% 0%, 0 0%, 0% 62%);
+  position: relative; 
+  color: #FFFFFF;
+}
+
+/* .block::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px; 
+  background-color: #000;
+} */
+
+.block p {
+  margin: 0;
+  padding: 10px 20px;
+}
+
+.triangle-left {
+  width: 0;
+  height: 0;
+  border-left: 16px solid transparent;
+  border-bottom: 20px solid #9A4626;
+}
+
+.triangle-right {
+  width: 0;
+  height: 0;
+  border-right: 16px solid transparent;
+  border-bottom: 20px solid #9A4626;
+}
+
+
+
