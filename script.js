@@ -16,6 +16,7 @@ const GRAY_COLOR = '#4D4D4D';
 
 let words = [];
 let myWord = [];
+let activeDiv = null;
 
 const dialogWindow = document.querySelector('.overlay');
 const levelContainer = document.querySelector('.level');
@@ -90,13 +91,17 @@ document.querySelector('.refresh-window').addEventListener('click', function() {
   location.reload();
 });
 
-document.addEventListener('pointerup', function() {
+document.addEventListener('pointerup', handlePointerUp);
+document.addEventListener('touchend', handlePointerUp);
+
+function handlePointerUp() {
   const elements = document.querySelectorAll('.inner-circle');
   elements.forEach((element) => {
     element.style.color = WHITE_COLOR;
     element.style.backgroundColor = PINK_COLOR;
     
     element.removeEventListener('pointerover', handlePointerOver); 
+    element.removeEventListener('pointerdown', handlePointerDown); 
   });
 
   const indexWord = words.indexOf(myWord.join(''));
@@ -114,7 +119,7 @@ document.addEventListener('pointerup', function() {
 
   myWord = [];
   removeAllElementsById('myWord');
-});
+}
 
 Storage.set('openpages', Date.now());
 
@@ -221,6 +226,25 @@ function handlePointerDown(element) {
     element.addEventListener('pointerover', handlePointerOver); 
   });
 }
+
+document.addEventListener('touchmove', function(e) {
+  const touch = e.touches[0];
+  const element = document.elementFromPoint(touch.clientX, touch.clientY);
+
+  if (element && element.className === 'inner-circle') {
+    if (activeDiv !== element) {
+      element.style.color = GRAY_COLOR;
+      element.style.backgroundColor = WHITE_COLOR;
+
+      myWord.push(element.textContent);
+      showText(element.textContent);
+    }
+
+    activeDiv = element;
+  } else {
+    activeDiv = null;
+  }
+});
 
 function removeAllElementsById(id) {
   const container = document.getElementById(id);
