@@ -102,6 +102,7 @@ function handlePointerUp() {
     
     element.removeEventListener('pointerover', handlePointerOver); 
     element.removeEventListener('pointerdown', handlePointerDown); 
+    document.body.removeEventListener('touchmove', handleTouchMove);
   });
 
   const indexWord = words.indexOf(myWord.join(''));
@@ -213,13 +214,15 @@ function handlePointerOver(event) {
   showText(hoveredElement.textContent);
 }
 
+function handleTouchMove(e) {
+  e.preventDefault();
+}
+
 function handlePointerDown(element) {
   element.style.color = GRAY_COLOR;
   element.style.backgroundColor = WHITE_COLOR;
 
-  document.body.addEventListener('touchmove', function(e) {  
-    e.preventDefault();
-  }, { passive: false });
+  document.body.addEventListener('touchmove', handleTouchMove, { passive: false });
 }
 
 function handleMouseDown(element) {
