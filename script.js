@@ -138,8 +138,8 @@ async function fetchData(level) {
   try {
     const response = await fetch(`levels/${level}.json`);
     const data = await response.json();
-
-    return data.words;
+    
+    return data.words.sort((a, b) => a.length - b.length);
   } catch (error) {
     console.error("Ошибка при загрузке файла:", error);
   }
