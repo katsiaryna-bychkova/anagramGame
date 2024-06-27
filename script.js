@@ -103,7 +103,6 @@ function handlePointerUp() {
     element.removeEventListener('pointerover', handlePointerOver); 
     element.removeEventListener('pointerdown', handlePointerDown); 
   });
-  document.body.style.overflow = 'auto';
 
   const indexWord = words.indexOf(myWord.join(''));
 
@@ -217,8 +216,13 @@ function handlePointerOver(event) {
 function handlePointerDown(element) {
   element.style.color = GRAY_COLOR;
   element.style.backgroundColor = WHITE_COLOR;
-  document.body.style.overflow = 'hidden';
 
+  document.body.addEventListener('touchmove', function(e) {  
+    e.preventDefault();
+  }, { passive: false });
+}
+
+function handleMouseDown(element) {
   myWord.push(element.textContent);
   showText(element.textContent);
 
@@ -262,6 +266,9 @@ function showLetterCircles(letter) {
   circle.classList.add('inner-circle');
   circle.onpointerdown = function() { 
     handlePointerDown(this);
+  };
+  circle.onmousedown = function() { 
+    handleMouseDown(this);
   };
 
   lettersContainer.appendChild(circle);
